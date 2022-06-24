@@ -1,26 +1,36 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div>
+    <h1> Texto na APP.vue</h1>
+    <button @click="desmontarComponeten()">Desmontar o componente conteudo</button>
+   <topo-padrao/>
+    <conteudo v-if="visibilidade"></conteudo> 
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Conteudo from '@/components/layouts/Conteudo.vue'
+import TopoPadrao from '@/components/layouts/TopoPadrao.vue'
 
 export default {
   name: 'App',
+  data: () => ({
+    visibilidade: true
+  }),
+  methods: {
+    desmontarComponeten(){
+      this.visibilidade = false
+    }
+  },
   components: {
-    HelloWorld
+    Conteudo,
+    TopoPadrao
   }
 }
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+<style module>
+
+h1 {
+  color: rgb(77, 67, 67);
 }
-</style>
+</style>>
